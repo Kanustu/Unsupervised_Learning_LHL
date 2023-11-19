@@ -23,44 +23,83 @@ The project will involve the following tasks:
 - **Outlier Identification:**
   - Created boxplots to identify and visualize outliers in each column, offering insights into data spread and value distribution.
   
-These exploratory steps aimed to comprehensively understand the dataset, its characteristics, and variations among groups, providing a solid foundation for subsequent analysis and modeling.
+These exploratory steps aimed to understand the dataset, its characteristics, and variations among groups.
 
 ### Feature Engineering/Pre-processing
 
-preprocessor pipeline was created that included a one hot encoder and a log transformer, this was then further combined with a standardscaler. this was then fitted to the data
-then a function to replace outliers was then implemented on the data
-Based on a heatmap and scatterplots, the 'Grocery' feature was dropped as it had a high correlation to multiple othere features
-A variancethreshold was then run in order to remove any low-variance features
+- **Preprocessing Pipeline:**
+  - Created a preprocessing pipeline comprising a one-hot encoder and a log transformer.
+  - Combined the pipeline with a StandardScaler for further data transformation.
+  - Fitted the combined pipeline to the data.
 
+- **Outlier Replacement Function:**
+  - Implemented a function to replace outliers within the dataset.
+
+- **Feature Analysis and Dropping:**
+  - Conducted analysis using a heatmap and scatterplots.
+  - Identified 'Grocery' as a feature with high correlation to multiple others.
+  - Dropped the 'Grocery' feature from the dataset.
+
+- **Variance Thresholding:**
+  - Applied a variance threshold to remove low-variance features from the dataset.
+  
 ### Modeling
 
 #### Kmeans Clustering
 
-an elbow plot was created to decide upon the ideal amount of clusters for kmeans cluster analysis
-then a kmeans instance was created based upon the aforementioned elbow plot
-cluster labels were then assigned to the original dataframe in order to track cluster grouping
-then used PCA to get two features that would aid in visualization in a 2-d space
-then created a visualization to see the cluster groups
-then ran a silhouette score
-based on the elbowplot, visuavlization and silhouette score, 3 clusters was decided upon as the ideal number
+- **Elbow Plot for Cluster Selection:**
+  - Created an elbow plot to determine the optimal number of clusters for KMeans cluster analysis.
+
+- **KMeans Instance Creation:**
+  - Generated a KMeans instance based on the identified optimal number of clusters from the elbow plot.
+
+- **Cluster Label Assignment:**
+  - Assigned cluster labels to the original dataframe to track cluster grouping.
+
+- **PCA for Dimension Reduction:**
+  - Utilized Principal Component Analysis (PCA) to obtain two features for visualization in a 2-dimensional space.
+
+- **Cluster Visualization:**
+  - Created a visualization to observe cluster groups in the dataset.
+
+- **Silhouette Score Evaluation:**
+  - Calculated a silhouette score to assess the quality of the clustering.
+
+- **Decision on Number of Clusters:**
+  - Based on the elbow plot, visualization, and silhouette score, determined that 3 clusters were the optimal choice for the analysis.
 
 #### Heirachical Clustering
 
-an dendrogram was created based on the data
-then an agglomerative clustering object was created with the amount of clusters decided upon based on the dendrogram
-then plotted the clusters for visualization
-ran a silhouette score
-based on the dendrogram, visualization and silhouette score 3 clusters was decided upon as the ideal number
+- **Dendrogram Creation:**
+  - Generated a dendrogram based on the dataset to visualize hierarchical clustering.
+
+- **Agglomerative Clustering Object:**
+  - Created an agglomerative clustering object with the determined number of clusters from the dendrogram.
+
+- **Cluster Visualization:**
+  - Plotted the clusters for visual representation.
+
+- **Silhouette Score Evaluation:**
+  - Calculated a silhouette score to assess the quality of the hierarchical clustering.
+
+- **Decision on Number of Clusters:**
+  - Based on the dendrogram, visualization, and silhouette score, concluded that 3 clusters were the optimal choice for the analysis.
 
 #### PCA
 
-Created a PCA object and then looked at the explained variance ratio and found that the first two principal components covered
-55% of the information within the data
-then plotted the class seperation using the first two principal components
+- **PCA Object Creation:**
+  - Created a Principal Component Analysis (PCA) object.
+
+- **Explained Variance Analysis:**
+  - Examined the explained variance ratio to understand the contribution of each principal component.
+  - Discovered that the first two principal components covered 55% of the information within the data.
+
+- **Visualization Using Principal Components:**
+  - Plotted the class separation using the first two principal components for visual analysis.
 
 #### Conclusion
 
-The original data, characterized by a heavily right-skewed distribution, required transformation to achieve a more normal distribution.
-Across various clustering algorithms, the configuration of 3 clusters demonstrated the optimal balance between cohesion and separation.
-An exploration of the explained variance plot indicated that approximately 55% of the information can be elucidated by the first two principal components.
-Among the identified clusters, Cluster 2 emerged as the largest, followed by Cluster 0, while Cluster 1 was the smallest and exhibited the lowest spending. Further analysis revealed that Cluster 2, despite being the largest, spent significantly less on milk and Detergents_Paper products compared to Cluster 0, suggesting potential marketing opportunities for these specific products to Cluster 2 customers.
+- The original data, characterized by a heavily right-skewed distribution, required transformation to achieve a more normal distribution.
+- Across various clustering algorithms, the configuration of 3 clusters demonstrated the optimal balance between cohesion and separation.
+- An exploration of the explained variance plot indicated that approximately 55% of the information can be elucidated by the first two principal components.
+- Among the identified clusters, Cluster 2 emerged as the largest, followed by Cluster 0, while Cluster 1 was the smallest and exhibited the lowest spending. Further analysis revealed that Cluster 2, despite being the largest, spent significantly less on milk and Detergents_Paper products compared to Cluster 0, suggesting potential marketing opportunities for these specific products to Cluster 2 customers.
