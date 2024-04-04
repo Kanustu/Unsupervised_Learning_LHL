@@ -1,4 +1,4 @@
-# machine_learning_project-unsupervised-learning
+# Unsupervised Learning Wholesale Data
 
 ## Project Outcomes
 - Unsupervised Learning: perform unsupervised learning techniques on a wholesale data dataset. The project involves four main parts: exploratory data analysis and pre-processing, KMeans clustering, hierarchical clustering, and PCA.
